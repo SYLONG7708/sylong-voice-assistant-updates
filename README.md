@@ -22,11 +22,16 @@ history. The stable release contains SenseVoice INT8 plus the existing English
 and Vietnamese Vosk offline models. This follows GitHub's documented 100 MiB
 repository object limit while keeping the repository small.
 
+Repository release immutability is enabled. Stable assets are uploaded to a
+draft and only then published, so GitHub locks the release assets and associated
+tag and emits a release attestation.
+
 ## Stable channel
 
 - Manifest: `channel/stable/manifest.json`
 - Detached signature: `channel/stable/manifest.json.sig`
 - Public certificate: `certificates/update-signing-cert.der`
+- Immutable asset release: `speech-assets-2026-07-18-r2`
 
 The SenseVoice and Vosk projects retain their own upstream licenses. See
 `THIRD_PARTY_NOTICES.txt`.

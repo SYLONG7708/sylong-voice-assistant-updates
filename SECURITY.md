@@ -4,6 +4,10 @@ The update manifest must be signed offline with the dedicated update-signing
 private key. The private key is never stored in this repository or in GitHub
 Actions.
 
+GitHub release immutability must remain enabled. Upload all assets to a draft,
+verify their GitHub-reported SHA-256 digests, and publish only after the signed
+manifest commit has passed the `verify` workflow.
+
 Do not merge an update when:
 
 - the detached signature does not verify;
