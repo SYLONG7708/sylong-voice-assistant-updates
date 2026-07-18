@@ -1,0 +1,10 @@
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.dpapi
+*.key
+*.pem
+*.apk
+private/
+secrets/

@@ -1,0 +1,73 @@
+name: Verify signed manifest
+
+on:
+  push:
+    branches: ["main", "agent/**"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+      - name: Verify detached RSA signature
+        shell: bash
+        run: |
+          set -euo pipefail
+          openssl x509 \
+            -inform DER \
+            -in certificates/update-signing-cert.der \
+            -pubkey \
+            -noout > /tmp/update-public.pem
+          base64 --decode channel/stable/manifest.json.sig > /tmp/manifest.sig
+          openssl dgst \
+            -sha256 \
+            -verify /tmp/update-public.pem \
+            -signature /tmp/manifest.sig \
+            channel/stable/manifest.json
+      - name: Validate manifest security policy
+        shell: python
+        run: |
+          import json, re, time
+          from pathlib import Path
+          from urllib.parse import urlparse
+
+          manifest = json.loads(Path("channel/stable/manifest.json").read_text("utf-8"))
+          assert manifest["schema"] == 1
+          assert manifest["sequence"] > 0
+          assert manifest["minimumAppVersionCode"] >= 70
+          assert manifest["expiresAt"] > int(time.time())
+          allowed_hosts = {
+              "github.com",
+              "raw.githubusercontent.com",
+              "release-assets.githubusercontent.com",
+              "objects.githubusercontent.com",
+          }
+          allowed_targets = {
+              "sensevoice/model.int8.onnx",
+              "sensevoice/tokens.txt",
+              "vosk/vosk-model-small-en-us-0.15.zip",
+              "vosk/vosk-model-small-vn-0.4.zip",
+          }
+          ids = set()
+          for asset in manifest["assets"]:
+              assert asset["id"] not in ids
+              ids.add(asset["id"])
+              assert urlparse(asset["url"]).scheme == "https"
+              assert urlparse(asset["url"]).hostname in allowed_hosts
+              assert asset["target"] in allowed_targets
+              assert 0 < asset["bytes"] <= 512 * 1024 * 1024
+              assert re.fullmatch(r"[0-9A-F]{64}", asset["sha256"])
+          assert {
+              "sensevoice-model",
+              "sensevoice-tokens",
+              "vosk-en-us",
+              "vosk-vi-vn",
+          } <= ids

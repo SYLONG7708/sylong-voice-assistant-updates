@@ -1,0 +1,11 @@
+SenseVoiceSmall INT8 model
+Model name retained for attribution: SenseVoiceSmall
+Copyright (c) Alibaba Group, FunASR and FunAudioLLM contributors
+License: FunASR Model Open Source License Agreement 1.1
+License reference: https://github.com/modelscope/FunASR/blob/main/MODEL_LICENSE
+Source and author information: https://github.com/FunAudioLLM/SenseVoice
+
+Vosk small Chinese 0.22, English US 0.15, and Vietnamese 0.4 models
+Copyright (c) Alpha Cephei contributors
+License: Apache-2.0
+Source: https://alphacephei.com/vosk/models

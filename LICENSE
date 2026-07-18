@@ -1,0 +1,11 @@
+Copyright (c) 2026 SYLONG. All rights reserved.
+
+The SYLONG update-channel manifests, configuration, documentation, and
+certificates in this repository are provided only for authenticating and
+operating authorized SYLONG Voice Assistant installations. No permission is
+granted to copy, modify, sublicense, impersonate, or create a competing update
+channel from those SYLONG materials.
+
+Third-party speech model release assets are not covered by this notice. They
+remain subject to their own licenses and attribution requirements listed in
+THIRD_PARTY_NOTICES.txt.
