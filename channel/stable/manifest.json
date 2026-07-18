@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "sequence": 2026071802,
-  "revision": "2026-07-18-commercial-cloud-2",
+  "sequence": 2026071803,
+  "revision": "2026-07-18-commercial-cloud-3",
   "issuedAt": 1784367000,
   "expiresAt": 1815926399,
   "minimumAppVersionCode": 70,
@@ -9,7 +9,7 @@
     {
       "id": "sensevoice-model",
       "version": "sensevoice-small-int8-2024-07-17",
-      "url": "https://github.com/SYLONG7708/sylong-voice-assistant-updates/releases/download/speech-assets-2026-07-18/sensevoice-model.int8.onnx",
+      "url": "https://github.com/SYLONG7708/sylong-voice-assistant-updates/releases/download/speech-assets-2026-07-18-r2/sensevoice-model.int8.onnx",
       "bytes": 239233841,
       "sha256": "C71F0CE00BEC95B07744E116345E33D8CBBE08CEF896382CF907BF4B51A2CD51",
       "target": "sensevoice/model.int8.onnx"
@@ -17,7 +17,7 @@
     {
       "id": "sensevoice-tokens",
       "version": "sensevoice-small-int8-2024-07-17",
-      "url": "https://github.com/SYLONG7708/sylong-voice-assistant-updates/releases/download/speech-assets-2026-07-18/sensevoice-tokens.txt",
+      "url": "https://github.com/SYLONG7708/sylong-voice-assistant-updates/releases/download/speech-assets-2026-07-18-r2/sensevoice-tokens.txt",
       "bytes": 315894,
       "sha256": "F449EB28DC567533D7FA59BE34E2ABCA8784F771850C78A47FB731A31429A1DC",
       "target": "sensevoice/tokens.txt"
@@ -25,7 +25,7 @@
     {
       "id": "vosk-en-us",
       "version": "vosk-model-small-en-us-0.15",
-      "url": "https://github.com/SYLONG7708/sylong-voice-assistant-updates/releases/download/speech-assets-2026-07-18/vosk-model-small-en-us-0.15.zip",
+      "url": "https://github.com/SYLONG7708/sylong-voice-assistant-updates/releases/download/speech-assets-2026-07-18-r2/vosk-model-small-en-us-0.15.zip",
       "bytes": 41205931,
       "sha256": "30F26242C4EB449F948E42CB302DD7A686CB29A3423A8367F99FF41780942498",
       "target": "vosk/vosk-model-small-en-us-0.15.zip"
@@ -33,7 +33,7 @@
     {
       "id": "vosk-vi-vn",
       "version": "vosk-model-small-vn-0.4",
-      "url": "https://github.com/SYLONG7708/sylong-voice-assistant-updates/releases/download/speech-assets-2026-07-18/vosk-model-small-vn-0.4.zip",
+      "url": "https://github.com/SYLONG7708/sylong-voice-assistant-updates/releases/download/speech-assets-2026-07-18-r2/vosk-model-small-vn-0.4.zip",
       "bytes": 33656337,
       "sha256": "EFE5C8494212110471A79BEFC48C79DA679E5B1FC52A4FFB500222FF86D622E5",
       "target": "vosk/vosk-model-small-vn-0.4.zip"
